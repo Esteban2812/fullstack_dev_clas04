@@ -1,0 +1,55 @@
+
+<table>
+  <tr>
+    <td>Titulo:</td>
+
+  </tr>
+  <tr>
+
+      <td>
+        <input type="text" #titulo>
+      </td>
+    </tr>
+    <tr>
+        <td>Director:</td>
+
+      </tr>
+      <tr>
+
+          <td>
+            <input type="text" #director>
+          </td>
+        </tr>
+        <tr>
+            <td>Afiche:</td>
+
+          </tr>
+          <tr>
+
+              <td>
+                <input type="file" hidden="true" (click)="guardarFoto($event)" #foto>
+              </td>
+            </tr>
+            <tr>
+
+                <td>
+                  <button type="button" (click)="foto.click()">Load</button>
+                </td>
+              </tr>
+              <tr>
+                  <td>Año:</td>
+
+                </tr>
+                <tr>
+
+                    <td>
+                      <input type="text" #anio>
+                    </td>
+                  </tr>
+                  <tr>
+
+                      <td>
+                        <button type="button">Agregar</button>
+                      </td>
+                    </tr>
+  </table>
