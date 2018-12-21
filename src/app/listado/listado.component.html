@@ -1,3 +1,27 @@
-<p>
-  listado works!
-</p>
+<table>
+<tr>
+  <td>Afiche</td>
+  <td>Titulo</td>
+</tr>
+<ng-container *ngFor="let movie of movies">
+<tr>
+  <td>
+    <img [src]="movie.afiche" style="width:100%; max-width:100px; display:inline-block; margin-left: 10px">
+  </td>
+  <td>
+    <label>{{movie.titulo}}</label>
+  </td>
+</tr>
+<tr>
+  <td colspan="2">
+    <button type="button" (click)="movie.visualizar=!movie.visualizar">Detalle</button>
+    <div *ngIf="movie.visualizar">
+      <p style="font-style: italic">Director:</p>
+      <p>{{movie.director}}</p>
+      <p style="font-style: italic">Año:</p>
+      <p>{{movie.anio}}</p>
+    </div>
+  </td>
+</tr>
+</ng-container>
+</table>

@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { MovieService } from '../movie.service';
+import { IMovie } from '../imovie';
 
 @Component({
   selector: 'app-listado',
@@ -7,9 +9,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ListadoComponent implements OnInit {
 
-  constructor() { }
+  constructor(private movieService:MovieService) { }
 
   ngOnInit() {
   }
 
+  movies:Array<IMovie> = this.movieService.getMovies()
+  
 }

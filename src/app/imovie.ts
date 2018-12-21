@@ -2,7 +2,7 @@ export interface IMovie {
   titulo?:string
   director?:string
   afiche?:string
-  Año?:number
+  anio?:number
   visualizar?:boolean
 
 }
