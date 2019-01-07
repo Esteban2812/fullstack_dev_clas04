@@ -1,12 +1,15 @@
-<table>
-<tr>
-  <td>Afiche</td>
-  <td>Titulo</td>
-</tr>
+<table class="table table-bordered" *ngIf="movies.length; else noHayRecetas">
+  <thead class="thead">
+      <tr>
+          <th>Afiche</th>
+          <th>Título</th>
+        </tr>
+  </thead>
+
 <ng-container *ngFor="let movie of movies">
 <tr>
   <td>
-    <img [src]="movie.afiche" style="width:100%; max-width:100px; display:inline-block; margin-left: 10px">
+    <img [src]="movie.afiche" style="width:100%; max-width:220px; display:inline-block; margin-left: 10px">
   </td>
   <td>
     <label>{{movie.titulo}}</label>
@@ -14,14 +17,24 @@
 </tr>
 <tr>
   <td colspan="2">
-    <button type="button" (click)="movie.visualizar=!movie.visualizar">Detalle</button>
+    <button class="btn btn-outline-primary" (click)="movie.visualizar=!movie.visualizar">Detalle</button>
     <div *ngIf="movie.visualizar">
-      <p style="font-style: italic">Director:</p>
+      <!-- <p style="font-style: italic">Director:</p> -->
+      <strong>
+        <em>Director:</em>
+      </strong>
       <p>{{movie.director}}</p>
-      <p style="font-style: italic">Año:</p>
+      <!-- <p style="font-style: italic">Año:</p> -->
+      <strong>
+        <em>Año:</em>
+        </strong>
       <p>{{movie.anio}}</p>
     </div>
   </td>
 </tr>
 </ng-container>
 </table>
+
+<ng-template #noHayRecetas>
+  <h3>No hay recetas ingresadas.</h3>
+</ng-template>

@@ -1,57 +1,21 @@
 
-<table>
-  <tr>
-    <td>Titulo:</td>
+<form>
+  <div class="form-group">
+    <input type="text" class="form-control" placeholder="Título" #titulo>
+  </div>
+  <div class="form-group">
+    <input type="text" class="form-control" placeholder="Director" #director>
+  </div>
+  <div class="form-group">
+    <input type="file" class="form-control" style="display:none"  (change)="guardarFoto($event)" #foto>
+    <button type="button" class="btn btn-outline-success" (click)="foto.click()">Afiche</button>
+    <img [src]="imagen" style="width:100%; max-width:100px; display:inline-block; margin-left: 10px" *ngIf="imagen">
+  </div>
+  <div class="form-group">
+    <input type="text" class="form-control" placeholder="Año" #anio>
+  </div>
+  <div class="form-group">
+    <button type="button" class="btn btn-primary btn-block" (click)="agregarMovie(titulo.value,director.value,foto.value,anio.value,false)">Agregar</button>
+  </div>
+</form>
 
-  </tr>
-  <tr>
-
-      <td>
-        <input type="text" #titulo>
-      </td>
-    </tr>
-    <tr>
-        <td>Director:</td>
-
-      </tr>
-      <tr>
-
-          <td>
-            <input type="text" #director>
-          </td>
-        </tr>
-        <tr>
-            <td>Afiche:</td>
-
-          </tr>
-          <tr>
-
-              <td>
-                <input type="file" hidden="true" (change)="guardarFoto($event)" #foto>
-              </td>
-            </tr>
-            <tr>
-
-                <td>
-                  <button type="button" (click)="foto.click()">Load</button>
-                  <img [src]="imagen" style="width:100%; max-width:100px; display:inline-block; margin-left: 10px" *ngIf="imagen">
-                </td>
-              </tr>
-              <tr>
-                  <td>Año:</td>
-
-                </tr>
-                <tr>
-
-                    <td>
-                      <input type="text" #anio>
-                    </td>
-                  </tr>
-                  <tr>
-
-                      <td>
-                        <button type="button" (click)="agregarMovie(titulo.value,director.value,foto.value,anio.value,false)">Agregar</button>
-                        
-                      </td>
-                    </tr>
-  </table>

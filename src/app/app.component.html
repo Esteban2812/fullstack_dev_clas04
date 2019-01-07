@@ -1,21 +1,25 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-  <h1>
-    Welcome to {{ title }}!
-  </h1>
-</div>
+<nav *ngIf="logueado" class="navbar navbar-expand-md navbar-dark bg-dark mb-4">
+  <a class="navbar-brand" routerLink="/">Sistema</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggle-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarCollapse">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/recetas" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Movies</a>
+      </li>
+    </ul>
+    <form class="form-inline mt-2 mt-md-0">
+      <button class="btn btn-outline-success my-2 my-sm-0" type="button" (click)="salir()">Logout</button>
+    </form>
+  </div>
+</nav>
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-5">
+      <router-outlet></router-outlet>
+    </div>
 
-<div>
-  <table>
-    <tr>
-      <td>
-        <app-formulario></app-formulario>
-        
-      </td>
-      <td>
-        <app-listado></app-listado>
-      </td>
-    </tr>
-  </table>
-</div>
+  </div>
 
+</div>
