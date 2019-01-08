@@ -8,13 +8,14 @@ import { LoginComponent } from './login/login.component';
 
 import { Route, RouterModule} from '@angular/router'
 import { AuthGuard } from './auth.guard';
+import { LoggedComponent } from './logged/logged.component';
 
 const rutas:Route[] = [
   { path : "", component: LoginComponent },
   {
-    path: "movies", canActivate: [AuthGuard],children: [
+    path: "peliculas", canActivate: [AuthGuard],children: [
       { path : "", component: ListadoComponent},
-      { path : "nuevo", component: FormularioComponent}
+      { path : "nueva", component: FormularioComponent}
     ]
   }
 ]
@@ -24,7 +25,8 @@ const rutas:Route[] = [
     AppComponent,
     FormularioComponent,
     ListadoComponent,
-    LoginComponent
+    LoginComponent,
+    LoggedComponent
   ],
   imports: [
     BrowserModule,

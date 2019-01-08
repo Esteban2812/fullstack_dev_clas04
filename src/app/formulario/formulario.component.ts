@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MovieService } from '../movie.service';
 import { IMovie } from '../imovie';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-formulario',
@@ -9,7 +10,7 @@ import { IMovie } from '../imovie';
 })
 export class FormularioComponent implements OnInit {
 
-  constructor(private movieService:MovieService) { }
+  constructor(private movieService:MovieService, private router:Router) { }
 
   ngOnInit() {
   }
@@ -41,6 +42,7 @@ export class FormularioComponent implements OnInit {
     const movie:IMovie = {titulo,director,afiche:this.imagen,anio,visualizar}
     this.movieService.agregarMovie(movie)
     this.imagen = undefined
+    this.router.navigate(["peliculas"])
   }
 
 

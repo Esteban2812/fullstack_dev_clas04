@@ -11,7 +11,7 @@ export class SeguridadService {
 
    }
    login(){
-     this.router.navigate(["movies"])
+     this.router.navigate(["peliculas"])
      sessionStorage.setItem("usuario","ealvino")
      this.onCambioEstado.emit(true)
 
@@ -19,6 +19,12 @@ export class SeguridadService {
    estaLogueado(){
      return sessionStorage.getItem("usuario") ? true:false
 
+   }
+
+   logout(){
+     sessionStorage.removeItem("usuario")
+     this.router.navigate(["/"])
+     this.onCambioEstado.emit(false)
    }
 
 }

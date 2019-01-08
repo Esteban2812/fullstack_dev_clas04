@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MovieService } from '../movie.service';
 import { IMovie } from '../imovie';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-listado',
@@ -9,11 +10,20 @@ import { IMovie } from '../imovie';
 })
 export class ListadoComponent implements OnInit {
 
-  constructor(private movieService:MovieService) { }
+  movies : IMovie[]
+
+  constructor(private movieService:MovieService, private router:Router) { }
+
+  
 
   ngOnInit() {
+    this.movies = this.movieService.getMovies();
   }
 
-  movies:Array<IMovie> = this.movieService.getMovies()
+  //movies:Array<IMovie> = this.movieService.getMovies()
   
+  nuevaPelicula(){
+    this.router.navigate(["peliculas","nueva"])
+  }
+
 }

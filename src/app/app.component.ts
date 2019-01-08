@@ -18,4 +18,8 @@ export class AppComponent {
       (estado:boolean) => this.logueado = estado
     )
   }
+
+  salir() {
+    this.seguridadService.logout()
+  }
 }

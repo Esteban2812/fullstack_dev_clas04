@@ -8,9 +8,13 @@ import { SeguridadService } from './../seguridad.service'
 })
 export class LoginComponent implements OnInit {
 
+  estasAutorizado:boolean
+
   constructor(private seguridadService:SeguridadService) { }
 
   ngOnInit() {
+    this.estasAutorizado = this.seguridadService.estaLogueado()
+    console.log("estasAutorizado="+this.estasAutorizado)
   }
 
   ingresar(){
